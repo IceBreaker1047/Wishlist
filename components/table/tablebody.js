@@ -18,7 +18,10 @@ const TableBody = ({ wishlist }) => {
                         <tr key={index}>
                             <td className="py-3 px-4 border-white text-center">{item.itemName}</td>
                             <td className="py-3 px-4 border-white text-center">{item.purchased}</td>
-                            <td className="py-3 px-4 border-white text-center">{item.price}</td>
+                            <td className="py-3 px-4 border-white text-center">{item.price.toLocaleString('en-US', {
+                                style: 'currency',
+                                currency: 'INR',
+                            })}</td>
                             <td className="py-3 px-4 border-white text-center flex items-center justify-center space-x-3">
                                 <Link href={`/edit/${item.id}`} className="text-white hover:text-gray-300">
                                     <FiEdit2 className="w-4 h-4" />
