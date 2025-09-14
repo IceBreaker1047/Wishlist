@@ -1,11 +1,13 @@
-"use client"
-import PageWrapper from "@/components/ui/pagewrapper";
 import Counter from "@/components/ui/counter";
+import { auth } from "@/lib/auth";
 import Image from "next/image";
-import CountUp from "react-countup";
+import { redirect } from "next/navigation";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 
-const Savings = () => {
+const Savings = async () => {
+    const session = await auth()
+    if (!session) redirect('/')
+
     return (
         <div className="flex flex-col items-center h-screen">
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">

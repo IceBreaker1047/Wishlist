@@ -9,6 +9,8 @@ import TableHeader from "@/components/table/tableheader"
 import { getWishList } from "@/lib/data"
 import TableBody from "@/components/table/tablebody"
 import CountUp from "react-countup"
+import { auth } from "@/lib/auth"
+import { redirect } from "next/navigation"
 
 const HomePage = async ({ searchParams }) => {
   const query = searchParams?.query || ""
@@ -27,6 +29,9 @@ const HomePage = async ({ searchParams }) => {
     style: 'currency',
     currency: 'INR',
   });
+
+  const session = await auth();
+  if (!session) redirect('/')
 
   return (
     <PageWrapper>
