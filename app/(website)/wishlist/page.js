@@ -11,6 +11,8 @@ import TableBody from "@/components/table/tablebody"
 import CountUp from "react-countup"
 import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
+import SignOutbtn from "@/components/ui/signoutbtn"
+import Header from "@/components/ui/header"
 
 const HomePage = async ({ searchParams }) => {
   const query = searchParams?.query || ""
@@ -34,30 +36,36 @@ const HomePage = async ({ searchParams }) => {
   if (!session) redirect('/')
 
   return (
-    <PageWrapper>
-      <div className="flex flex-col gap-6 w-full">
-        <TitleText
-          title="Wishlist"
-          subtitle='" Keep going. Dreams do come true! "'
-        />
-      </div>
-      <div className="flex items-center justify-between gap-8 p-4 text-white w-full">
-        <SearchBar />
-        <Link href={'/create'}
-          className="flex">
-          <FiPlusCircle size={32} className="hover:text-gray-300" />
-        </Link>
-      </div>
-      <div className="text-white text-4xl">Total: {formattedTotal}</div>
-      <div className="p-6 shadow-lg">
-        <ItemTable>
-          <TableHeader />
-          <TableBody
-            wishlist={wishlist}
+    <div>
+      <Header />
+      <PageWrapper>
+        <div className="flex flex-col gap-6 w-full">
+          <TitleText
+            title="Wishlist"
+            subtitle='" Keep going. Dreams do come true! "'
           />
-        </ItemTable>
-      </div>
-    </PageWrapper>
+        </div>
+        <div className="flex items-center justify-between gap-8 p-4 text-white w-full">
+          <SearchBar />
+          <Link href={'/create'}
+            className="flex">
+            <FiPlusCircle size={32} className="hover:text-gray-300" />
+          </Link>
+        </div>
+        <div className="flex justify-around">
+          <div className="text-white text-4xl">Total: {formattedTotal}</div>
+          <SignOutbtn />
+        </div>
+        <div className="p-6 shadow-lg">
+          <ItemTable>
+            <TableHeader />
+            <TableBody
+              wishlist={wishlist}
+            />
+          </ItemTable>
+        </div>
+      </PageWrapper>
+    </div>
   )
 }
 
