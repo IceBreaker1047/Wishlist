@@ -25,10 +25,6 @@ const Home = async () => {
                     provider="Reddit"
                     icon={SiReddit}
                 />
-                <SignInbtn
-                    provider="Instagram"
-                    icon={SiInstagram}
-                />
             </div>
         </div>
     )

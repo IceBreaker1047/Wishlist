@@ -10,7 +10,6 @@ const Counter = ({ end }) => {
                 end={end}
                 duration={1}
             />
-            %
         </span>
     )
 }
