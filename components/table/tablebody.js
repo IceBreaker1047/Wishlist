@@ -18,7 +18,7 @@ const TableBody = ({ wishlist }) => {
                         <tr key={index}>
                             <td className="py-3 px-4 border-white text-center">{item.itemName}</td>
                             <td className="py-3 px-4 border-white text-center">{item.purchased}</td>
-                            <td className="py-3 px-4 border-white text-center">{item.price.toLocaleString('en-US', {
+                            <td className="py-3 px-4 border-white text-center">{item.price.toLocaleString('en-IN', {
                                 style: 'currency',
                                 currency: 'INR',
                             })}</td>

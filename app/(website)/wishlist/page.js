@@ -8,7 +8,6 @@ import ItemTable from "@/components/table/itemtable"
 import TableHeader from "@/components/table/tableheader"
 import { getWishList } from "@/lib/data"
 import TableBody from "@/components/table/tablebody"
-import CountUp from "react-countup"
 import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import SignOutbtn from "@/components/ui/signoutbtn"
@@ -27,7 +26,7 @@ const HomePage = async ({ searchParams }) => {
 
   }, 0);
 
-  const formattedTotal = totalPrice.toLocaleString('en-UK', {
+  const formattedTotal = totalPrice.toLocaleString('en-IN', {
     style: 'currency',
     currency: 'INR',
   });
